@@ -50,48 +50,95 @@ public class MainTest {
 
   // TEST Part_1
   private void part1(){
+    Scanner scan = new Scanner(System.in);
+    int choice;
     createLeague();
     System.out.println("Premier League:");
-    System.out.println("Team 1: " + team1.getName() + " / Jersey: " + team1.getJerseyColor() + " / Manager: " + team1.getManager().getName());
+    System.out.println("Team 1: " + team1.getName() + " / Jersey: " + team1.getJerseyColor() + " / Manager: "
+            + team1.getManager().getName().getFirstName() + " "+ team1.getManager().getName().getFirstName() + " "+ team1.getManager().getName().getFirstName() + " ");
     System.out.println("Players:");
     for (Player player : team1.getPlayers() ){
-      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
+              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
     }
     System.out.println("");
 
-    System.out.println("Team 2: " + team2.getName() + " / Jersey: " + team2.getJerseyColor() + " / Manager: " + team2.getManager().getName());
+    System.out.println("Team 2: " + team2.getName() + " / Jersey: " + team2.getJerseyColor() + " / Manager: "
+            + team2.getManager().getName().getFirstName() + " " + team2.getManager().getName().getMiddleName() + " " + team2.getManager().getName().getLastName() + " ");
     System.out.println("Players:");
     for (Player player : team2.getPlayers() ){
-      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
+              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
     }
     System.out.println("");
-    System.out.println("Team 3: " + team3.getName() + " / Jersey: " + team3.getJerseyColor() + " / Manager: " + team3.getManager().getName());
+    System.out.println("Team 3: " + team3.getName() + " / Jersey: " + team3.getJerseyColor() + " / Manager: "
+            + team3.getManager().getName().getFirstName() + " " + team3.getManager().getName().getMiddleName() + " " + team3.getManager().getName().getLastName() + " ");
     System.out.println("Players:");
     for (Player player : team3.getPlayers() ){
-      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
+              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
     }
     System.out.println("");
-    System.out.println("Team 4: " + team1.getName() + " / Jersey: " + team4.getJerseyColor() + " / Manager: " + team4.getManager().getName());
+    System.out.println("Team 4: " + team1.getName() + " / Jersey: " + team4.getJerseyColor() + " / Manager: "
+            + team4.getManager().getName().getFirstName() + " "+ team4.getManager().getName().getMiddleName() + " "+ team4.getManager().getName().getLastName() + " ");
     System.out.println("Players:");
     for (Player player : team4.getPlayers() ){
-      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
+              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
     }
     System.out.println("");
-    System.out.println("Team 5: " + team5.getName() + " / Jersey: " + team5.getJerseyColor() + " / Manager: " + team5.getManager().getName());
+    System.out.println("Team 5: " + team5.getName() + " / Jersey: " + team5.getJerseyColor()
+            + " / Manager: " + team5.getManager().getName().getFirstName() + " " + team5.getManager().getName().getMiddleName() + " " + team5.getManager().getName().getLastName() + " ");
     System.out.println("Players:");
     for (Player player : team5.getPlayers() ){
-      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
+              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
     }
     System.out.println("");
+
+    System.out.println("Select a manager to see its Team:");
+    System.out.println("1. " + manager1.getName().getFirstName() + " " + manager1.getName().getMiddleName() + " " + manager1.getName().getLastName() + " ");
+    System.out.println("2. " + manager2.getName().getFirstName() + " " + manager2.getName().getMiddleName() + " " + manager2.getName().getLastName() + " ");
+    System.out.println("3. " + manager3.getName().getFirstName() + " " + manager3.getName().getMiddleName() + " " + manager3.getName().getLastName() + " ");
+    System.out.println("4. " + manager4.getName().getFirstName() + " " + manager4.getName().getMiddleName() + " " + manager4.getName().getLastName() + " ");
+    System.out.println("5. " + manager5.getName().getFirstName() + " " + manager5.getName().getMiddleName() + " " + manager5.getName().getLastName() + " ");
+    System.out.println("");
+
+    choice = scan.nextInt();
+
+    switch (choice){
+      case 1:
+        System.out.println("The team managed by "+ manager1.getName().getFirstName() + " " + manager1.getName().getMiddleName() + " " + manager1.getName().getLastName()
+                + " is: " + manager1.getTeam().getName());
+        break;
+      case 2:
+        System.out.println("The team managed by "+ manager2.getName().getFirstName() + " " + manager2.getName().getMiddleName() + " " + manager2.getName().getLastName()
+                + " is: " + manager2.getTeam().getName());
+        break;
+      case 3:
+        System.out.println("The team managed by " + manager3.getName().getFirstName() + " " + manager3.getName().getMiddleName() + " " + manager3.getName().getLastName()
+                + " is: " + manager3.getTeam().getName());
+        break;
+      case 4:
+        System.out.println("The team managed by " + manager4.getName().getFirstName() + " " + manager4.getName().getMiddleName() + " " + manager4.getName().getLastName()
+                + " is: " + manager4.getTeam().getName());
+        break;
+      case 5:
+        System.out.println("The team managed by " + manager5.getName().getFirstName() + " " + manager5.getName().getMiddleName() + " " + manager5.getName().getLastName()
+                + " is: " + manager5.getTeam().getName());
+        break;
+      default:
+        break;
+    }
   }
 
   private void createLeague(){
+    createTeams();
     league.add(team1);
     league.add(team2);
     league.add(team3);
     league.add(team4);
     league.add(team5);
-    createTeams();
   }
 
   private void createTeams(){
@@ -127,6 +174,21 @@ public class MainTest {
   }
 
   private void addPlayers(){
+    player11.setGoals(5);
+    player23.setGoals(3);
+    player35.setGoals(7);
+    player41.setGoals(2);
+    player55.setGoals(1);
+    player11.setGoalie();
+    player11.setGoals(15);
+    player22.setGoalie();
+    player22.setGoals(11);
+    player33.setGoalie();
+    player33.setGoals(12);
+    player44.setGoalie();
+    player44.setGoals(17);
+    player55.setGoalie();
+    player55.setGoals(1);
     team1.addPlayer(player11);
     team1.addPlayer(player12);
     team1.addPlayer(player13);
@@ -172,12 +234,13 @@ public class MainTest {
 
   // TEST Part_2
   private void part2(){
+    createLeague();
 
 
   }
 
   // MAIN method:
-  public void main (String[] args){
+  public static void main (String[] args){
     MainTest test = new MainTest();
     test.start();
   }

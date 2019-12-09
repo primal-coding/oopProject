@@ -4,11 +4,12 @@ public class Team {
 
   private String name = "";
   private Manager manager = new Manager(new Name("No","Manager"));
-  private ArrayList<Player> team;
+  private ArrayList<Player> team = new ArrayList<Player>();   // necessary to prevent null pointer exception in addPlayer()
   private String jerseyColor = "";
 
+
   public void addPlayer(Player player) {
-    team.add(player);
+    this.team.add(player);
   }
 
   public void removePlayer(Player player) {

@@ -3,7 +3,7 @@ public class Manager extends Person {
 
   private String dob = "";
   private int starRating = 0;
-  private Team team = new Team();
+  private Team team;
 
   public Manager(){}
   public Manager(Name name){
@@ -27,7 +27,9 @@ public class Manager extends Person {
   }
 
   public Team getTeam() {
-    return team;
+    if (team != null) return team;
+    System.out.println("No team assigned.");
+    return new Team();    // could I use a default static Team instance?
   }
 
   public void setTeam(Team team){ this.team = team; }
