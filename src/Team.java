@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Team {
 
+  private String name = "";
   private Manager manager = new Manager(new Name("No","Manager"));
   private ArrayList<Player> team;
   private String jerseyColor = "";
@@ -24,6 +25,10 @@ public class Team {
     manager = null;
   }
 
+  public Manager getManager() {
+    return manager;
+  }
+
   public void setJerseyColor(String color) {
     jerseyColor = color;
   }
@@ -32,4 +37,13 @@ public class Team {
   public String getJerseyColor() {
     return jerseyColor;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+  public ArrayList<Player> getPlayers(){ return team; }
 }

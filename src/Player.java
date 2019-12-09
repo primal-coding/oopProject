@@ -6,7 +6,7 @@ public class Player extends Person {
 
   public Player(){}
   public Player(Name name){
-    this.name = name;
+    this.name = name;   // uses protected name instead of setFirst/Middle/LastName
   }
 
   public int getGoals() {
@@ -16,6 +16,10 @@ public class Player extends Person {
   public void setGoals(int goals) {
     this.goals = goals;
   }
+
+  public void addGoal(){ goals++; }
+
+  public void setGoalie(){goalie = true;}
 
   public boolean isGoalie() {
     return goalie;

@@ -50,8 +50,39 @@ public class MainTest {
 
   // TEST Part_1
   private void part1(){
+    createLeague();
+    System.out.println("Premier League:");
+    System.out.println("Team 1: " + team1.getName() + " / Jersey: " + team1.getJerseyColor() + " / Manager: " + team1.getManager().getName());
+    System.out.println("Players:");
+    for (Player player : team1.getPlayers() ){
+      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+    }
+    System.out.println("");
 
-
+    System.out.println("Team 2: " + team2.getName() + " / Jersey: " + team2.getJerseyColor() + " / Manager: " + team2.getManager().getName());
+    System.out.println("Players:");
+    for (Player player : team2.getPlayers() ){
+      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+    }
+    System.out.println("");
+    System.out.println("Team 3: " + team3.getName() + " / Jersey: " + team3.getJerseyColor() + " / Manager: " + team3.getManager().getName());
+    System.out.println("Players:");
+    for (Player player : team3.getPlayers() ){
+      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+    }
+    System.out.println("");
+    System.out.println("Team 4: " + team1.getName() + " / Jersey: " + team4.getJerseyColor() + " / Manager: " + team4.getManager().getName());
+    System.out.println("Players:");
+    for (Player player : team4.getPlayers() ){
+      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+    }
+    System.out.println("");
+    System.out.println("Team 5: " + team5.getName() + " / Jersey: " + team5.getJerseyColor() + " / Manager: " + team5.getManager().getName());
+    System.out.println("Players:");
+    for (Player player : team5.getPlayers() ){
+      System.out.println(player.getName() + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+    }
+    System.out.println("");
   }
 
   private void createLeague(){
@@ -69,6 +100,11 @@ public class MainTest {
     team3.setJerseyColor("Red");
     team4.setJerseyColor("Yellow");
     team5.setJerseyColor("Green");
+    team1.setName("Dingle");
+    team2.setName("Charleville");
+    team3.setName("Cork");
+    team4.setName("Athlone");
+    team5.setName("Portlaois");
     createManagers();
     team1.addManager(manager1);
     team2.addManager(manager2);
@@ -84,6 +120,10 @@ public class MainTest {
     manager3.setName(new Name("Alex","Ferguson"));
     manager4.setName(new Name("Jurgen","Kopp"));
     manager5.setName(new Name("Martin","O'","Neill"));
+    manager5.setDob("01/02/83");
+    manager5.setStarRating(5);
+    manager5.setEmail("martin.o.neil@fai.ie");
+    manager5.setPhone("089-12345678");
   }
 
   private void addPlayers(){
@@ -112,6 +152,21 @@ public class MainTest {
     team5.addPlayer(player53);
     team5.addPlayer(player54);
     team5.addPlayer(player55);
+    player11.setGoals(5);
+    player23.setGoals(3);
+    player35.setGoals(7);
+    player41.setGoals(2);
+    player55.setGoals(1);
+    player11.setGoalie();
+    player11.setGoals(15);
+    player22.setGoalie();
+    player22.setGoals(11);
+    player33.setGoalie();
+    player33.setGoals(12);
+    player44.setGoalie();
+    player44.setGoals(17);
+    player55.setGoalie();
+    player55.setGoals(1);
   }
 
 

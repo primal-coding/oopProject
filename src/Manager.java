@@ -7,7 +7,7 @@ public class Manager extends Person {
 
   public Manager(){}
   public Manager(Name name){
-    this.name = name;
+    this.name = name;   // uses protected name instead of setFirst/Middle/LastName
   }
 
   public String getDob() {
