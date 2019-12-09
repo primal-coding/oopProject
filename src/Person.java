@@ -1,6 +1,6 @@
 public class Person {
 
-  private Name name;
+  protected Name name;  // in order to use in Player and Manager using 'this' keyword
   private String phone;
   private String email;
 

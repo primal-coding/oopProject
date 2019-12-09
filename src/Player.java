@@ -1,9 +1,13 @@
 public class Player extends Person {
 
 
-  private int goals;
+  private int goals = 0;
   private boolean goalie = false;
 
+  public Player(){}
+  public Player(Name name){
+    this.name = name;
+  }
 
   public int getGoals() {
     return goals;

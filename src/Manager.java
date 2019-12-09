@@ -1,10 +1,14 @@
 public class Manager extends Person {
 
 
-  private String dob;
-  private int starRating;
-  private Team team;
+  private String dob = "";
+  private int starRating = 0;
+  private Team team = new Team();
 
+  public Manager(){}
+  public Manager(Name name){
+    this.name = name;
+  }
 
   public String getDob() {
     return dob;
@@ -25,5 +29,7 @@ public class Manager extends Person {
   public Team getTeam() {
     return team;
   }
+
+  public void setTeam(Team team){ this.team = team; }
 
 }
