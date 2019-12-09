@@ -234,10 +234,161 @@ public class MainTest {
 
   // TEST Part_2
   private void part2(){
+    boolean loop = true;
     createLeague();
-
+    Scanner scan = new Scanner(System.in);
+    int choice = 0;
+    while (loop){
+      menu();
+      choice = scan.nextInt();
+      switch(choice){
+        case 1:
+          menu1();
+          break;
+        case 2:
+          menu2();
+          break;
+        case 3:
+          menu3();
+          break;
+        case 4:
+          menu4();
+          break;
+        case 5:
+          menu5();
+          break;
+        case 6:
+          menu6();
+          break;
+        case 7:
+          menu7();
+          break;
+        case 8:
+          loop = false;
+          break;
+        default:
+          break;
+      }
+    }
 
   }
+
+  // 1. Create a new Team, Player or Manager and add Player/Manager to a Team.
+  private void menu1(){
+    Scanner scan = new Scanner(System.in);
+    int choice = 0;
+    System.out.println("Create a new 1.Team, 2.Player or 3.Manager");
+    System.out.println("Add to a Team a 4.Player or 5.Manager ");
+    choice = scan.nextInt();
+    switch(choice){
+      case 1:
+        menu11();
+        break;
+      case 2:
+        menu12();
+        break;
+      case 3:
+        menu13();
+        break;
+      case 4:
+        menu14();
+        break;
+      case 5:
+        menu15();
+        break;
+      default:
+        break;
+    }
+  }
+  private void menu11(){
+    Scanner scan = new Scanner(System.in);
+    String str = "";
+    Team team = new Team();
+    System.out.println("Name of the Team:");
+    str = scan.nextLine();
+    team.setName(str);
+    System.out.println("Color of the Jersey:");
+    str = scan.nextLine();
+    team.setJerseyColor(str);
+  }
+  private void menu12(){
+    Scanner scan = new Scanner(System.in);
+    String strF,strM, strL = "";
+    Player player = new Player();
+    System.out.println("First name of the Player:");
+    strF = scan.nextLine();
+    System.out.println("Middle name:");
+    strM = scan.nextLine();
+    System.out.println("Last name:");
+    strL = scan.nextLine();
+    player.setName(new Name(strF,strM,strL));
+  }
+  private void menu13(){
+
+  }
+  private void menu14(){
+
+  }
+  private void menu15(){
+
+  }
+  // 2. Remove a Player.
+  private void menu2(){
+
+  }
+  // 3. Search for a Player by supplying the Player name. Display goals and Manager details.
+  private void menu3(){
+
+  }
+  // 4. Display all Players in a particular Team.
+  private void menu4(){
+    Scanner scan = new Scanner(System.in);
+    Team team;
+    int i = 1;
+    int choice = 0;
+    System.out.println("Select a Team:");
+    for (Team t : league.getTeams()){
+      System.out.println(i + ". " + t.getName());
+      i++;
+    }
+    choice = scan.nextInt();
+    team = league.getTeams().get(choice - 1);
+
+    System.out.println("List of Players of " + team.getName() + ":");
+    for (Player player : team.getPlayers() ){
+      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
+              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+    }
+    System.out.println();
+  }
+  // 5. Display all Teams in the League.
+  private void menu5(){
+    System.out.println("Teams of the League:");
+    for (Team team : league.getTeams()){
+      System.out.println("Team: " + team.getName() + " / Jersey: " + team.getJerseyColor() + " / Manager: "
+              + team.getManager().getName().getFirstName() + " "+ team.getManager().getName().getFirstName() + " "+ team.getManager().getName().getFirstName() + " ");
+    }
+  }
+  // 6. Save information to text file.
+  private void menu6(){
+
+  }
+  // 7. Load information from text file.
+  private void menu7(){
+
+  }
+
+  private void menu(){
+    System.out.println("1. Create a new Team, Player or Manager and add Player/Manager to a Team.");
+    System.out.println("2. Remove a Player.");
+    System.out.println("3. Search for a Player by supplying the Player name. Display goals and Manager details.");
+    System.out.println("4. Display all Players in a particular Team.");
+    System.out.println("5. Display all Teams in the League.");
+    System.out.println("6. Save information to text file.");
+    System.out.println("7. Load information from text file.");
+    System.out.println("8. Quit");
+  }
+
 
   // MAIN method:
   public static void main (String[] args){

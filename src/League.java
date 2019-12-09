@@ -11,4 +11,8 @@ public class League {
     teams.remove(team);
   }
 
+  public ArrayList<Team> getTeams(){
+    return teams;
+  }
+
 }
