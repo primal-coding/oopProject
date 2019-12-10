@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Team {
 
   private String name = "";
+  private String jerseyColor = "";
   private Manager manager = new Manager(new Name("No","Manager"));
   private ArrayList<Player> team = new ArrayList<Player>();   // necessary to prevent null pointer exception in addPlayer()
-  private String jerseyColor = "";
 
 
   public void addPlayer(Player player) {
@@ -47,4 +47,15 @@ public class Team {
     this.name = name;
   }
   public ArrayList<Player> getPlayers(){ return team; }
+
+  public String toFile(){
+    String result = "";
+    result = name  + "\n" + jerseyColor + "\n" + manager.getName().getFirstName() + "\n"
+            + manager.getName().getMiddleName() + "\n" + manager.getName().getLastName() + "\n";
+    result += team.size() + "\n";
+    for (Player p : team){
+      result += p.getName().getFirstName() + "\n" + p.getName().getMiddleName() + "\n" + p.getName().getLastName() + "\n";
+    }
+    return result;
+  }
 }

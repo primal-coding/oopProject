@@ -41,6 +41,7 @@ public class MainTest {
   private Player player55 = new Player(new Name("Paul","Pogba"));
   private ArrayList<Player> players = new ArrayList<Player>();
   private ArrayList<Manager> managers = new ArrayList<Manager>();
+  private FileIOTest fileIOTest = new FileIOTest();
 
   // In The Beginning:
   private void start(){
@@ -461,11 +462,26 @@ public class MainTest {
   }
   // 6. Save information to text file.
   private void menu6(){
-
+    if (fileIOTest.saveLeague(league.getTeams(),players,managers) == 0)
+      System.out.println("All League information saved.");
+    else
+      System.out.println("Error while saving. Please try again.");
   }
   // 7. Load information from text file.
   private void menu7(){
-
+    ArrayList<Team> teams;
+    if (fileIOTest.readLeague() == 0) {
+      managers = fileIOTest.readManagers();
+      players = fileIOTest.readPlayers();
+      teams = fileIOTest.readTeams();
+    }
+    else {
+      System.out.println("Error while trying to read the file. Please try again.");
+      return;
+    }
+    league = new League();
+    for (Team t : teams)
+      league.add(t);
   }
 
   private void menu(){

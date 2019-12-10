@@ -34,4 +34,10 @@ public class Manager extends Person {
 
   public void setTeam(Team team){ this.team = team; }
 
+  public String toFile(){
+    String result = "";
+    result = name.getFirstName() + "\n" + name.getMiddleName() + "\n" + name.getLastName() + "\n";
+    result += getEmail() + "\n" + getPhone() + "\n" + dob + "\n" + starRating + "\n";
+    return result;
+  }
 }

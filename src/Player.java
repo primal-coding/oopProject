@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Player extends Person {
 
 
@@ -23,5 +25,13 @@ public class Player extends Person {
 
   public boolean isGoalie() {
     return goalie;
+  }
+
+  public String toFile(){
+    String result = "";
+    result = name.getFirstName() + "\n" + name.getMiddleName() + "\n" + name.getLastName() + "\n";
+    result += getEmail() + "\n" + getPhone() + "\n";
+    result += goals  + "\n" + goalie + "\n";
+    return result;
   }
 }
