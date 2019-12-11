@@ -425,7 +425,7 @@ public class MainTest {
   private void menu3(){
     Scanner scan = new Scanner(System.in);
     String str;
-
+// TODO // TODO // TODO // TODO // TODO
     System.out.println();
   }
   // 4. Display all Players in a particular Team.
@@ -466,6 +466,7 @@ public class MainTest {
       System.out.println("All League information saved.");
     else
       System.out.println("Error while saving. Please try again.");
+    System.out.println();
   }
   // 7. Load information from text file.
   private void menu7(){
@@ -482,6 +483,7 @@ public class MainTest {
     league = new League();
     for (Team t : teams)
       league.add(t);
+    System.out.println("All information loaded.\n");
   }
 
   private void menu(){
