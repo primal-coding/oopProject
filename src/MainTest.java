@@ -424,7 +424,34 @@ public class MainTest {
   // 3. Search for a Player by supplying the Player name. Display goals and Manager details.
   private void menu3(){
     Scanner scan = new Scanner(System.in);
-    String str;
+    String strF, strM, strL;
+    Player player = new Player();
+    Manager manager = new Manager();
+    System.out.println("What is the Player First Name:");
+    strF = scan.nextLine();
+    System.out.println("What is " + strF + " Middle Name:");
+    strM = scan.nextLine();
+    System.out.println("What is " + strF + " Last Name:");
+    strL = scan.nextLine();
+
+    for (Player p : players){
+      if (p.getName().getFirstName() == strF && p.getName().getMiddleName() == strM
+        && p.getName().getLastName() == strL) player = p;
+    }
+    System.out.println(strF + " has " + player.getGoals() + " goal(s).");
+    for (Team t : league.getTeams()){
+      for (Player p : t.getPlayers()){
+        if (p.equals(player)){
+          manager = t.getManager();
+        }
+      }
+    }
+    if (manager != null){
+      System.out.print(strF + "'s Manager is " + manager.getName().getFirstName() + " " + manager.getName().getMiddleName()
+              + " " + manager.getName().getLastName());
+      System.out.println(", who was born the " + manager.getDob() + ", and has a star rating of " + manager.getStarRating() + ".");
+    }
+    else System.out.println(strF + " has " + "no manager.");
 // TODO // TODO // TODO // TODO // TODO
     System.out.println();
   }
