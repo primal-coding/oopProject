@@ -272,7 +272,9 @@ public class MainTest {
   private void menu11(){    // Create new Team
     Scanner scan = new Scanner(System.in);
     String str = "";
+    int nOfPlayers = 0;
     Team team = new Team();
+    Manager manager = new Manager();
     System.out.println("Name of the Team:");
     str = scan.nextLine();
     team.setName(str);
@@ -280,9 +282,22 @@ public class MainTest {
     str = scan.nextLine();
     team.setJerseyColor(str);
 
+    System.out.println("What is its manager?");
+    manager = createManager();
+    team.addManager(manager);
+    System.out.print("How many players does the team have: ");
+    nOfPlayers = scan.nextInt();
+    for (int i = 0; i < nOfPlayers; i++){
+      team.addPlayer(createPlayer());
+    }
+
+    league.add(team);
     System.out.println();
   }
   private void menu12(){    // Create new Player
+    Player player = createPlayer();
+  }
+  private Player createPlayer(){
     Scanner scan = new Scanner(System.in);
     String str, strF, strM, strL;
     char c;
@@ -316,13 +331,17 @@ public class MainTest {
 
     players.add(player);
     System.out.println();
+    return player;
   }
   private void menu13(){    // Create new Manager
+    Manager manager = createManager();
+  }
+  private Manager createManager(){
+    Manager manager = new Manager();
     Scanner scan = new Scanner(System.in);
     String str, strF, strM, strL;
     int starRating;
-    Manager manager = new Manager();
-    System.out.println("First name of the Player:");
+    System.out.println("First name of the Manager:");
     strF = scan.nextLine();
     System.out.println("Middle name:");
     strM = scan.nextLine();
@@ -338,9 +357,13 @@ public class MainTest {
     System.out.println("What is his Phone number");
     str = scan.nextLine();
     manager.setPhone(str);
+    System.out.print("How many stars does he have: ");
+    starRating = scan.nextInt();
+    manager.setStarRating(starRating);
 
     managers.add(manager);
     System.out.println();
+    return manager;
   }
   private void menu14(){    // Add Player/Manager in Team
     Scanner scan = new Scanner(System.in);
@@ -452,7 +475,6 @@ public class MainTest {
       System.out.println(", who was born the " + manager.getDob() + ", and has a star rating of " + manager.getStarRating() + ".");
     }
     else System.out.println(strF + " has " + "no manager.");
-// TODO // TODO // TODO // TODO // TODO
     System.out.println();
   }
   // 4. Display all Players in a particular Team.
@@ -471,8 +493,11 @@ public class MainTest {
 
     System.out.println("List of Players of " + team.getName() + ":");
     for (Player player : team.getPlayers() ){
-      System.out.println(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " "
-              + " is a Goalie: " + player.isGoalie() + " / Goals: " + player.getGoals());
+      System.out.print(player.getName().getFirstName() + " " + player.getName().getMiddleName() + " " + player.getName().getLastName() + " ");
+      if (player.isGoalie()){
+        System.out.println(" is a Goalie with " + player.getGoals() + " Goals.");
+      }
+      else System.out.println(" is not a Goalie with " + player.getGoals() + " Goals.");
     }
 
     System.out.println();
@@ -482,7 +507,7 @@ public class MainTest {
     System.out.println("Teams of the League:");
     for (Team team : league.getTeams()){
       System.out.println("Team: " + team.getName() + " / Jersey: " + team.getJerseyColor() + " / Manager: "
-              + team.getManager().getName().getFirstName() + " "+ team.getManager().getName().getFirstName() + " "+ team.getManager().getName().getFirstName() + " ");
+              + team.getManager().getName().getFirstName() + " "+ team.getManager().getName().getMiddleName() + " "+ team.getManager().getName().getLastName() + " ");
     }
 
     System.out.println();
